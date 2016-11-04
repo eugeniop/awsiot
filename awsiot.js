@@ -10,6 +10,7 @@ const collection = 'my-button-events';
 const server = express();
 server.use(bodyParser.json());
 
+// uses client credentials for authorization on the POST
 server.use((req,res,next)=>{
   jwt({
     secret: "-----BEGIN CERTIFICATE-----\n" + req.webtaskContext.secrets.issuerPublicKey.match(/.{1,64}/g).join('\n') + "\n-----END CERTIFICATE-----\n",
