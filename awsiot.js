@@ -35,4 +35,18 @@ server.post('/', (req, res, next) => {
   });
 });
 
+
+server.get('/', (req, res, next) => {
+  MongoClient.connect(req.webtaskContext.secrets.mongoUrl, (err, db) => {
+    if (err) return next(err);
+    db.collection(collection)
+        .find({},{})
+          .toArray((err, result) => {
+            db.close();
+            if (err) return next(err);
+            res.status(200).send(result);
+    });
+  });
+});
+
 module.exports = Webtask.fromExpress(server);
