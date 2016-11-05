@@ -51,8 +51,11 @@ server.get('/', (req, res, next) => {
                                                           "SINGLE": 'self awake',
                                                           "DOUBLE": 'awake'
                                                         };
+                                                        var owner = {
+                                                          'G030JF0562426A1X': 'Eugenio'
+                                                        };
                                                         return {
-                                                                  sn:i.serialNumber,
+                                                                  who:owner[i.serialNumber],
                                                                   ts:i.dateTime,
                                                                   ev: events[i.clickType]
                                                                 };
