@@ -47,9 +47,9 @@ server.get('/', (req, res, next) => {
             if (err) return next(err);
             res.status(200).send(_.map(result,(i) => {
                                                         var events = {
-                                                          "LONG": 'awake',
+                                                          "LONG": 'start sleep',
                                                           "SINGLE": 'self awake',
-                                                          "DOUBLE": 'start sleep'
+                                                          "DOUBLE": 'awake'
                                                         };
                                                         return {
                                                                   sn:i.serialNumber,
