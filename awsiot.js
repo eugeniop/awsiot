@@ -45,7 +45,7 @@ server.get('/', (req, res, next) => {
           .toArray((err, result) => {
             db.close();
             if (err) return next(err);
-            res.status(200).send(_.map(result,(i) => return {sn:i.serialNumber});
+            res.status(200).send(_.map(result,(i) => {return {sn:i.serialNumber}}));
     });
   });
 });
