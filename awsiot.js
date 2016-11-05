@@ -4,6 +4,7 @@ import jwt from 'express-jwt';
 import express from 'express';
 import Webtask from 'webtask-tools';
 import { MongoClient } from 'mongodb';
+import _ from 'lodash';
 
 const collection = 'my-button-events';
 
@@ -44,7 +45,7 @@ server.get('/', (req, res, next) => {
           .toArray((err, result) => {
             db.close();
             if (err) return next(err);
-            res.status(200).send(result);
+            res.status(200).send(_.map(result,(i) => return {sn:i.serialNumber});
     });
   });
 });
