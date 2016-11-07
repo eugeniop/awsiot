@@ -56,8 +56,8 @@ server.get('/', (req, res, next) => {
                                                         };
                                                         return {
                                                                   who:owner[i.serialNumber],
-                                                                  ts:i.dateTime,
-                                                                  ev: events[i.clickType]
+                                                                  when:i.dateTime,
+                                                                  what: events[i.clickType]
                                                                 };
                                                       }));
     });
